@@ -67,3 +67,26 @@ class TestQueryTranslator(unittest.TestCase):
         query = translation.translate(MODULE, 'query', '{}', stix_pattern, options=test_options)
         queries = ['(process_hash:2f50b945d2a6554c1031a744764a0fe2) AND -enriched:True']
         self._test_query_assertions(query, queries)
+
+    def test_severity_query(self):
+        test_options = {"time_range": None}
+        stix_pattern = "[x-ibm-finding:severity = '2']"
+        query = translation.translate(MODULE, 'query', '{}', stix_pattern, options=test_options)
+        queries = ['(severity:2) AND -enriched:True']
+        self._test_query_assertions(query, queries)
+
+    def test_category_query(self):
+        test_options = {"time_range": None}
+        stix_pattern = "[x-ibm-finding:finding_type = 'WARNING']"
+        query = translation.translate(MODULE, 'query', '{}', stix_pattern, options=test_options)
+        queries = ['(category:WARNING) AND -enriched:True']
+        self._test_query_assertions(query, queries)
+
+
+    def test_event_id_query(self):
+        test_options = {"time_range": None}
+        stix_pattern = "[x-oca-event:code = '54885ebc6ee911eabc70416f8358e4f2']"
+        query = translation.translate(MODULE, 'query', '{}', stix_pattern, options=test_options)
+        queries = ['(event_id:54885ebc6ee911eabc70416f8358e4f2) AND -enriched:True']
+        self._test_query_assertions(query, queries)
+

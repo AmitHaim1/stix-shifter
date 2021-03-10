@@ -67,7 +67,6 @@ process_data_1 = json.loads("""
       "unique_id": "00080031-0000-0748-01d4-b1e61c7c3edd-016872e1cb30"
     }
   ],
-
   "elapsed": 0.05147600173950195,
   "comprehensive_search": true,
   "all_segments": true,

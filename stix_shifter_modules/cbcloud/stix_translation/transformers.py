@@ -46,17 +46,7 @@ class ToBase64(ValueTransformer):
             LOGGER.error("Cannot convert input to base64")
 
 
-class ToIPAddress(ValueTransformer):
-    """A value transformer for expected base 64 values"""
 
-    @staticmethod
-    def transform(obj):
-        try:
-            if type(obj) is int:
-                return 'XXX'
-            return 'YYY'
-        except ValueError:
-            LOGGER.error("Cannot convert input to base64")
 
 
 
