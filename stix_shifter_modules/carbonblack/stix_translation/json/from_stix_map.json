@@ -34,12 +34,17 @@
   },
   "process": {
     "fields": {
-      "command_line": ["cmdline"],
+      "command_line": ["cmdline", "command_line"],
       "created": ["start"],
-      "pid": ["process_pid"],
+      "pid": ["process_pid", "pid"],
       "name": ["process_name"],
       "parent_ref.pid": ["parent_pid"],
-      "creator_user_ref.user_id": ["username"]
+      "creator_user_ref.user_id": ["username"],
+      "binary_ref.name": ["process_path"],
+      "parent_ref.created" : ["parent_create_time"],
+      "child_refs.pid": ["child_pid"],
+      "parent_ref.binary_ref.name" : ["parent_path"]
+
     }
   },
   "domain-name": {
@@ -110,6 +115,19 @@
       "product_version": ["product_version"],
       "sensor_id": ["sensor_id"],
       "special_build": ["special_build"]
+    }
+  },
+    "x-oca-event": {
+    "fields": {
+      "agent": ["cb_server"],
+      "category": ["event_type"],
+      "created": ["timestamp"],
+      "action": ["childproc_type"]
+    }
+  },
+  "x-oca-asset": {
+    "fields": {
+      "hostname": ["computer_name"]
     }
   }
 }
