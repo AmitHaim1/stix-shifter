@@ -131,5 +131,17 @@
       "process_integrity_level": ["process_integrity_level"],
       "process_privileges": ["process_privileges"]
     }
+  },
+  "x-ibm-finding": {
+    "fields": {
+      "finding_type": ["category"],
+      "severity": ["severity"]
+    }
+  },
+  "x-oca-event":{
+    "fields": {
+      "code": ["event_id"],
+      "agent": ["device_name"]
+    }
   }
 }
